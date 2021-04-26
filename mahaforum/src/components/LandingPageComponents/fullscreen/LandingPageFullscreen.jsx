@@ -8,7 +8,7 @@ const LandingPageFullscreen = () => {
     var user = app.auth().currentUser;
     var izin;
     if (user) {
-        izin = "/mainpage";
+        izin = "/Profile";
     } else {
         izin = "/login";
     }

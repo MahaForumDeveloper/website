@@ -1,4 +1,5 @@
 import React from 'react'
+import Loading from '../../components/shared/Loading'
 
 function Contact() {
     return (

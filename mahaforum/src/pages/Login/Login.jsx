@@ -42,7 +42,7 @@ const Login = () => {
                     <input onChange={(e)=>setPassword(e.target.value)} className="form-control" type="password" style={{borderRadius:"205px"}}/>
                 </div>
                 <button className="btn btn-block" type="submit" style={{color:"white",borderRadius:"20px",border:"1px solid rgb(208,201,201)",height:"2.5rem", width:"55%",backgroundColor:"#6C63FF",margin:"30px auto"}}>Login</button>
-                <p style={{textAlign:"center"}}>Don't have an account?<a href="#"> Sign up</a></p>
+                <p style={{textAlign:"center"}}>Don't have an account?<a style={{cursor:"pointer", color:"blue"}} onClick={()=>history.push('/signup')}> Sign up</a></p>
             </form>
         </div>
     </div>
