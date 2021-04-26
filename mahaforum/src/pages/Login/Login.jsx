@@ -4,6 +4,7 @@ import "../Signup/signup.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import app from "../../base";
 import { useHistory } from 'react-router';
+import {Container} from 'react-bootstrap';
 
 const Login = () => {
     const history = useHistory()
@@ -24,13 +25,14 @@ const Login = () => {
       }
 
     return (
+        <Container fluid="sm">
         <div>
             <div className="row d-flex d-xl-flex">
                 <div className="col-lg-7">
                     <Hero className="img-fluid"/>
                 </div>
             <div className="col">
-            <h2 style={{textAlign: "center"}}>Login</h2>
+            <h2 style={{textAlign: "center", marginTop:"2rem"}}>Login</h2>
             <form onSubmit={handleLogin} >
                 <div className="form-group d-flex flex-column" style={{width:"65%"}}>
                     <label className="text-muted">Email or phone number</label>
@@ -45,6 +47,7 @@ const Login = () => {
         </div>
     </div>
         </div>
+        </Container>
     )
 }
 
