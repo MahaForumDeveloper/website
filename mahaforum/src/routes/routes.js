@@ -32,6 +32,7 @@ export const AllPrivateRoutes = [
 
 // yang bisa diakses tanpa authentication
 export const AllOpenRoutes = [
+    LANDING_PAGE,
     LOGIN_PAGE,
     SIGNUP_PAGE,
     ABOUT_PAGE,

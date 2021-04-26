@@ -1,0 +1,75 @@
+
+.contentLandingPageFull {
+    margin-top: 10vh;
+    width: 80%;
+    margin-left: 6vw;
+    background-color: transparent;
+}
+
+.bgLandingPageFull {
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* .jumbotronFull {
+    margin-left: 4vw;
+} */
+
+
+
+.jumbotronFull h2 {
+    font-size: 9vh;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: 53px;
+    letter-spacing: 0em;
+    text-align: left;
+    font-family: 'Poppins';
+    margin-top: 5vh;
+
+
+}
+
+.jumbotronFull h5 {
+    margin-top: 7vh;
+    width: 28vw;
+    font-size: 4vh;
+    font-weight: 600;
+    line-height: 1.3em;
+    text-align: justify;
+    letter-spacing: 0.01em;
+    font-family: 'Poppins';
+
+}
+
+.buttonFull {
+    width: 28vw;
+    text-align: center;
+    margin-top: 7vh;
+    margin-left: 0;
+}
+
+.buttonFull button {
+    background-color: #6C63FF;
+    color: #FFFFFF;
+    height: 4rem;
+    width: 12rem;
+    border-radius: 39px;
+    font-family: 'Poppins', sans-serif;
+    font-size: larger;
+}
+.buttonFull button:hover {
+    background-color: white;
+    border-radius: 39px;
+    border: 5px solid #6C63FF;
+    color: #6C63FF;
+}
+
+.pictFull {
+    margin-top: 0rem;
+    width: 106.5vh;
+    margin-left: 0;
+}
