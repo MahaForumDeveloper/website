@@ -43,4 +43,5 @@ export const NavbarRoutes = [
     LANDING_PAGE,
     ABOUT_PAGE,
     CONTACT_PAGE,
+    LOGIN_PAGE,
 ]

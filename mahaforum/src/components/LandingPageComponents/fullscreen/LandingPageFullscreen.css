@@ -50,6 +50,7 @@
     text-align: center;
     margin-top: 7vh;
     margin-left: 0;
+    transition: all 0.5s ease;
 }
 
 .buttonFull button {
@@ -60,6 +61,7 @@
     border-radius: 39px;
     font-family: 'Poppins', sans-serif;
     font-size: larger;
+    transition: all 0.5s ease;
 }
 .buttonFull button:hover {
     background-color: white;
