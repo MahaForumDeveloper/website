@@ -1,10 +1,20 @@
+import { Row, Col } from "react-bootstrap"
+import ProfileCard from "../../components/ProfilePageComponents/ProfileCard"
+import ProfileTabs from "../../components/ProfilePageComponents/ProfileTabs"
+import Search from "../../components/shared/Search"
 
 
 const Profile = () => {
     return (
-        <div>
-            <h1>Ini profile</h1>
-        </div>
+        <Row>
+            <Col></Col>
+            <Col xs={8}>
+                <Search/>
+                <ProfileCard/> 
+                <ProfileTabs/>
+            </Col>
+            <Col></Col>
+        </Row>
     )
 }
 
