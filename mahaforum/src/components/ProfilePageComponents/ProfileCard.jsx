@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card } from 'react-bootstrap'
+import app from '../../base'
 import "./ProfileCard.css"
 const ProfileCard = () => {
+    const [user, setUser] = useState("")
+    useEffect(() => {
+        setUser(app.auth().currentUser)
+    }, [])
     return (
        <Card className="shadow-sm p-3 mb-5 bg-white rounded" >
             <div className="card-body d-flex flex-column align-items-start align-content-start">
                 <div className="d-flex">
                     <img src="/images/user2.png" style={{margin:"0px", marginRight:"34px"}}/>
                     <div>
-                        <h3>Satria Dwi Bagaskara</h3>
+                        <h3>{user.displayName}</h3>
                         <h3><i className="fa fa-map-marker" style={{fontSize:"1.75rem"}}></i>  Sragen, Jawa Tengah</h3>
                         <p>I have over 4 years experience of WordPress. I am specialized in WordPress and WooCommerce, WordPress Theme Customization and Theme... More </p>
                     </div>

@@ -2,11 +2,10 @@ import {AuthProvider} from "./Auth";
 import PrivateRoute from "./PrivateRoute";
 import {
   BrowserRouter as Router,
-  Route,Switch
+  Route
 } from "react-router-dom";
 import Navbar from './components/TemplateComponents/Navbar/Navbar'
 import {AllOpenRoutes, AllPrivateRoutes} from './routes/routes';
-
 
 function App() {
   return (

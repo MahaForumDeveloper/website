@@ -12,7 +12,6 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const handleLogin = async event => {
         event.preventDefault();
-        console.log(password,email)
         try{
             await app
             .auth()

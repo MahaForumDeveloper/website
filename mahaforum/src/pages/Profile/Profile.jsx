@@ -2,16 +2,18 @@ import { Row, Col } from "react-bootstrap"
 import ProfileCard from "../../components/ProfilePageComponents/ProfileCard"
 import ProfileTabs from "../../components/ProfilePageComponents/ProfileTabs"
 import Search from "../../components/shared/Search"
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Profile = () => {
     return (
         <Row>
             <Col></Col>
-            <Col xs={8}>
+            <Col xs={7}>
                 <Search/>
                 <ProfileCard/> 
-                <ProfileTabs/>
+                <div className="shadow-sm p-3 mb-5 bg-body rounded">
+                    <ProfileTabs/>
+                </div>
             </Col>
             <Col></Col>
         </Row>
