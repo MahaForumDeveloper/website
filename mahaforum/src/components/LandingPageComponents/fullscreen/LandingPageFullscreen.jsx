@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import './LandingPageFullscreen.css';
 import LandingPagePict from '../../../icons/landingpage_pict.svg';
 import app from '../../../base';
 
 const LandingPageFullscreen = () => {
-    var user = app.auth().currentUser;
-    var izin;
-    if (user) {
-        izin = "/Profile";
-    } else {
-        izin = "/login";
-    }
+    const [izin, setIzin] = useState("/login")
+    useEffect(() => {
+        var user = app.auth().currentUser;
+        if (user) {
+            setIzin("/Profile")
+        } 
+    }, [])
     return(
         <div className="bgLandingPageFull">
             <div className="contentLandingPageFull">

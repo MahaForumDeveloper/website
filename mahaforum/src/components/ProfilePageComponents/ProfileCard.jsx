@@ -8,13 +8,13 @@ const ProfileCard = () => {
         setUser(app.auth().currentUser)
     }, [])
     return (
-       <Card className="shadow-sm p-3 mb-5 bg-white rounded" >
+       <Card className="shadow-sm p-3 mb-5 bg-white" style={{borderRadius:"40px"}}>
             <div className="card-body d-flex flex-column align-items-start align-content-start">
                 <div className="d-flex">
-                    <img src="/images/user2.png" style={{margin:"0px", marginRight:"34px"}}/>
+                    <img src="/images/user2.png" style={{width:"160px",height:"160px",margin:"0px", marginRight:"34px"}}/>
                     <div>
-                        <h3>{user.displayName}</h3>
-                        <h3><i className="fa fa-map-marker" style={{fontSize:"1.75rem"}}></i>  Sragen, Jawa Tengah</h3>
+                        <h4>{user.displayName}</h4>
+                        <h4><i className="fa fa-map-marker" style={{fontSize:"1.4rem"}}></i>  Sragen, Jawa Tengah</h4>
                         <p>I have over 4 years experience of WordPress. I am specialized in WordPress and WooCommerce, WordPress Theme Customization and Theme... More </p>
                     </div>
                 </div>

@@ -1,20 +1,23 @@
 import React from 'react'
-import {Container, Tabs, Tab, Card} from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
+import "./ProfileTabs.css"
+// import {Container, Tabs, Tab, Card} from 'react-bootstrap'
 
 const ProfileTabs = () => {
     return (
-            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+        <div style={{borderRadius:"40px"}} >
+            <Col>
+                <Row className="picker">
+                    <h4>Biography</h4>
+                    <h4>Skill</h4>
+                    <h4>Portofolio</h4>
+                </Row>
                 <hr/>
-                <Tab eventKey="home" title="Home">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, voluptate magni minima itaque tenetur necessitatibus. In magni dignissimos deleniti voluptate. Ab molestias saepe omnis soluta accusamus odit delectus repudiandae fugiat tempora iste placeat animi doloribus sint, sit, vel laboriosam? Numquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quos aut tempora eius culpa exercitationem ducimus laborum ea maiores saepe.</p>
-                </Tab>
-                <Tab eventKey="profile" title="Profile">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quos aut tempora eius culpa exercitationem ducimus laborum ea maiores saepe.</p>
-                </Tab>
-                <Tab eventKey="contact" title="Contact">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quos aut tempora eius culpa exercitationem ducimus laborum ea maiores saepe.</p>
-                </Tab>
-            </Tabs>
+                <div>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum corrupti atque quod asperiores voluptates id! Eaque repellat sunt quia voluptatibus nam voluptatum ex, perferendis veniam maxime dolore, quam earum quos!</p>
+                </div>
+            </Col>
+        </div>
     )
 }
 

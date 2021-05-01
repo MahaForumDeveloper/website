@@ -1,0 +1,11 @@
+.picker{margin-left:8px}
+.picker h4{
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.5 ease-in;
+    border-bottom: none;
+}
+
+.picker h4.active{
+    border-bottom: 2px solid blueviolet;
+}

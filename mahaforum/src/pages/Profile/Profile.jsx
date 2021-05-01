@@ -7,15 +7,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Profile = () => {
     return (
         <Row>
-            <Col></Col>
+            <Col>
+            </Col>
             <Col xs={7}>
                 <Search/>
                 <ProfileCard/> 
-                <div className="shadow-sm p-3 mb-5 bg-body rounded">
+                <div style={{borderRadius:"40px"}} className="shadow-sm p-3 mb-5 bg-body rounded">
                     <ProfileTabs/>
                 </div>
+            </Col >
+            <Col xs={3}>
+                
             </Col>
-            <Col></Col>
         </Row>
     )
 }
