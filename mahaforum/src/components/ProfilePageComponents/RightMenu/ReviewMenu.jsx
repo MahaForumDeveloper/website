@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Typography, Grid, } from '@material-ui/core'
+import { Card, Typography, Grid, Button} from '@material-ui/core'
 import StarIcon from '@material-ui/icons/Star';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import useStyles from './ReviewMenuStyles'
@@ -76,7 +76,13 @@ const ReviewMenu = () => {
             
         }
 
-
+        <Grid container justify='center'>
+            <Button className={classes.reviewSeeMore} >
+                <Typography className={classes.reviewSeeMoreText} >
+                    See More
+                </Typography>
+            </Button>
+        </Grid>
 
 
 

@@ -37,7 +37,18 @@ const useStyles = makeStyles( (theme)=> ({
 
   reviewItemContainer:{
     marginBottom:'20px'
-  }
+  },
+
+  reviewSeeMore:{
+    margin:'20px',
+    fontSize:'1.5rem',
+  },
+
+  reviewSeeMoreText:{
+    fontSize:'1.5rem',
+    color:'#5a27ab',
+    fontWeight:'50rem',
+  },
 }))
 
 export default useStyles
