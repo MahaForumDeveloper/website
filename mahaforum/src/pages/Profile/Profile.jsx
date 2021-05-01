@@ -4,6 +4,9 @@ import ProfileTabs from "../../components/ProfilePageComponents/ProfileTabs"
 import Search from "../../components/shared/Search"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import ReviewMenu from "../../components/ProfilePageComponents/RightMenu/ReviewMenu"
+import RightNav from "../../components/ProfilePageComponents/RightMenu/RightNav"
+
 const Profile = () => {
     return (
         <Row>
@@ -15,7 +18,10 @@ const Profile = () => {
                     <ProfileTabs/>
                 </div>
             </Col>
-            <Col></Col>
+            <Col xs={3}>
+                <RightNav />
+                <ReviewMenu />
+            </Col>
         </Row>
     )
 }
