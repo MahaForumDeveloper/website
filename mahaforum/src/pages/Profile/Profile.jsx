@@ -3,10 +3,9 @@ import ProfileCard from "../../components/ProfilePageComponents/ProfileCard"
 import ProfileTabs from "../../components/ProfilePageComponents/ProfileTabs"
 import Search from "../../components/shared/Search"
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
 import ReviewMenu from "../../components/ProfilePageComponents/RightMenu/ReviewMenu"
 import RightNav from "../../components/ProfilePageComponents/RightMenu/RightNav"
+
 const Profile = () => {
     return (
         <Row>
@@ -16,7 +15,7 @@ const Profile = () => {
             <Col xs={7}>
                 <Search/>
                 <ProfileCard/> 
-                <div style={{borderRadius:"40px"}} className="shadow-sm p-3 mb-5 bg-body rounded">
+                <div style={{borderRadius:"40px"}} className="shadow-sm p-3 mb-5 bg-body">
                     <ProfileTabs/>
                 </div>
             </Col >
