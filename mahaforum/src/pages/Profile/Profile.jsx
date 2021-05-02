@@ -2,6 +2,7 @@ import { Row, Col } from "react-bootstrap"
 import ProfileCard from "../../components/ProfilePageComponents/ProfileCard"
 import ProfileTabs from "../../components/ProfilePageComponents/ProfileTabs"
 import Search from "../../components/shared/Search"
+import SideBar from "../../components/shared/sidebar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReviewMenu from "../../components/ProfilePageComponents/RightMenu/ReviewMenu"
 import RightNav from "../../components/ProfilePageComponents/RightMenu/RightNav"
@@ -9,8 +10,8 @@ import RightNav from "../../components/ProfilePageComponents/RightMenu/RightNav"
 const Profile = () => {
     return (
         <Row>
-            <Col>
-            {/*  */}
+            <Col xs={2}>
+            <SideBar/>
             </Col>
             <Col xs={7}>
                 <Search/>
