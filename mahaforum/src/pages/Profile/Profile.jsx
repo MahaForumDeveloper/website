@@ -10,8 +10,8 @@ import RightNav from "../../components/ProfilePageComponents/RightMenu/RightNav"
 const Profile = () => {
     return (
         <Row>
-            <Col xs={2}>
-            <SideBar/>
+            <Col style={{padding:"0",borderRight:"1.5px solid black"}}>
+                <SideBar/>
             </Col>
             <Col xs={7}>
                 <Search/>
@@ -20,9 +20,9 @@ const Profile = () => {
                     <ProfileTabs/>
                 </div>
             </Col >
-            <Col xs={3}>
+            <Col style={{padding:"0"}}>
                 <RightNav />
-                <ReviewMenu />
+                <ReviewMenu style={{borderRadius:"40px"}} />
             </Col>
         </Row>
     )

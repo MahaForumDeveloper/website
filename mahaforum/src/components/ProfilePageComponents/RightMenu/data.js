@@ -11,11 +11,5 @@ const data = [
         star:'5.0',
         date: '29 January 2000'
     },
-    {
-        title:'User-3',
-        desc:'Nice Developer, dont go with anyone else. This guy is very fast and excellent problem solver',
-        star:'4.7',
-        date: '29 March 2000'
-    },
 ]
 export default data

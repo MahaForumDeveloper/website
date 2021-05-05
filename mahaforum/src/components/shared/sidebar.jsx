@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '120%',
+    width: '105%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.black,
     color: '#0a0a0a',
@@ -41,7 +41,7 @@ const SideBar = () => {
   return (
  <div>
     <div className={classes.textTitle}>
-      <Typography variant="h4" align="center" style={{ margin: "2rem", }}>MahaForum</Typography>
+      <Typography variant="h5" align="center" style={{ margin: "2rem", fontWeight:"800", cursor:"pointer"}}>MahaForum</Typography>
     </div>
     <div className={classes.root}>
       <Box m={4}>
