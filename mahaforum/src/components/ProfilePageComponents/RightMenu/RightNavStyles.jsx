@@ -12,15 +12,15 @@ const useStyles = makeStyles( (theme)=> ({
         display: 'flex',
         flexDirection:'column',
         justifyContent:'center',
-        marginTop:'.8rem'
+        marginTop:'.7rem'
     },
 
     navTitleName:{
-        fontSize:'18px',
+        fontSize:'1rem',
     },
 
     navTitleJob:{
-        fontSize:'15px',
+        fontSize:'0.9rem',
     },
 
     navButton:{
@@ -29,7 +29,7 @@ const useStyles = makeStyles( (theme)=> ({
     },
 
     navContainer:{
-        marginBottom:'8px'
+        marginBottom:'0.5rem'
     }
 }))
 

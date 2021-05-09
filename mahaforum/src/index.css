@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+:root{
+  font-size:0.9rem
+}
+
 * {
   margin: 0;
   padding: 0;

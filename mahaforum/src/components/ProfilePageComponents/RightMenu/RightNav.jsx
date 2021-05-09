@@ -10,7 +10,7 @@ const RightNav = () => {
     const classes = useStyles();
 
     return (
-        <Grid container className={classes.navContainer} justify='center' alignItems='center' className={classes.navContainer}>
+        <Grid container justify='center' alignItems='center' className={classes.navContainer}>
             <Grid item>
                 <IconButton className={classes.navButton} >
                     <NotificationsActiveOutlinedIcon fontSize='large' className={classes.navIcon} />

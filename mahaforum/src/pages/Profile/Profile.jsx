@@ -9,7 +9,7 @@ import RightNav from "../../components/ProfilePageComponents/RightMenu/RightNav"
 
 const Profile = () => {
     return (
-        <Row>
+        <Row style={{minHeight:"100vh"}}>
             <Col style={{padding:"0",borderRight:"1.5px solid black"}}>
                 <SideBar/>
             </Col>
