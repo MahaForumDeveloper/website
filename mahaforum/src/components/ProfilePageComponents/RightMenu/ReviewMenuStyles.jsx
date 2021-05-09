@@ -5,6 +5,13 @@ const useStyles = makeStyles( (theme)=> ({
    fontSize:"0.8rem",
     backgroundColor: 'blue',
   },
+
+  card:{
+    borderRadius:'40px',
+    padding:'2rem',
+    boxShadow:'2px 2px 3px solid black',
+    border:'1px solid rgba(0,0,0,0.1)'
+  },
   star:{
     padding:'2px',
   },
@@ -20,7 +27,7 @@ const useStyles = makeStyles( (theme)=> ({
   },
 
   reviewTitle:{
-    marginBottom: '10px',
+    marginBottom: '30px',
   },
 
   reviewTitleBold:{
@@ -42,13 +49,30 @@ const useStyles = makeStyles( (theme)=> ({
   reviewSeeMore:{
     margin:'20px',
     fontSize:'1.5rem',
+    padding:'10px',
+    borderRadius:'5px'
   },
 
   reviewSeeMoreText:{
     fontSize:'1.5rem',
     color:'#5a27ab',
     fontWeight:'50rem',
+    textTransform:'none'
   },
+
+  reviewSeeMoreLink:{
+    textDecoration:'none',
+    color:'#5a27ab',
+    fontSize:'1.1rem',
+    fontWeight:'100rem',
+    transition: 'all 0.5s ease',
+    '&:hover':{
+      textDecoration:'none',
+      opoacity:'0.7',
+      textShadow: '0.15px 0.15px 1px rgba(0,0,0,0.3)'
+    }
+  },
+
 }))
 
 export default useStyles

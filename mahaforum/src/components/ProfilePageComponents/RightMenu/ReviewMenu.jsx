@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Typography, Grid, Button} from '@material-ui/core'
+
+import { Card, Typography, Grid} from '@material-ui/core'
 import StarIcon from '@material-ui/icons/Star';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import useStyles from './ReviewMenuStyles'
@@ -9,7 +10,7 @@ const ReviewMenu = () => {
     const classes=useStyles();
 
     return (
-        <Card className={classes.cardContainer} >
+        <Card classes={{ root: classes.card }} >
 
             {/* Review Title */}
             <Grid container justify='left' alignItems='center' className={classes.reviewTitle} >
@@ -76,12 +77,9 @@ const ReviewMenu = () => {
             
         }
 
+
         <Grid container justify='center'>
-            <Button className={classes.reviewSeeMore} >
-                <Typography className={classes.reviewSeeMoreText} >
-                    See More
-                </Typography>
-            </Button>
+            <a href="#" className={classes.reviewSeeMoreLink}>See More</a>
         </Grid>
 
 

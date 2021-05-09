@@ -22,7 +22,7 @@ const Profile = () => {
             </Col >
             <Col style={{padding:"0"}}>
                 <RightNav />
-                <ReviewMenu style={{borderRadius:"40px"}} />
+                <ReviewMenu />
             </Col>
         </Row>
     )
