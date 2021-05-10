@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Card } from 'react-bootstrap'
 import app from '../../base'
 import "./ProfileCard.css"
-const ProfileCard = () => {
+const ProfileCard = ({ref}) => {
     const [user, setUser] = useState("")
     useEffect(() => {
         setUser(app.auth().currentUser)
     }, [])
     return (
-       <Card className="shadow-sm p-3 mb-5 bg-white" style={{borderRadius:"40px"}}>
+       <Card className="shadow-sm p-3 mb-5 bg-white" style={{borderRadius:"40px"}} ref={ref}>
             <div className="card-body d-flex flex-column align-items-start align-content-start">
                 <div className="d-flex">
                     <img src="/images/user2.png" style={{width:"120px",height:"120px",margin:"0px", marginRight:"34px"}}/>

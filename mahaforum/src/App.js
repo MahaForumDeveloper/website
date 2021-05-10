@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Navbar from './components/TemplateComponents/Navbar/Navbar'
 import {AllOpenRoutes, AllPrivateRoutes} from './routes/routes';
+import Layout from "./components/shared/Layout";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <AuthProvider>
         <Router>
         <Navbar/>
+        <Layout>
             {AllOpenRoutes.map(({path, component: Component})=>(
               <Route
               exact
@@ -29,7 +31,8 @@ function App() {
               component={Component}
             />
             ))}
-        </Router>
+        </Layout>
+       </Router>
       </AuthProvider>
     </div>
   );

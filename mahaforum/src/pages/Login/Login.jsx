@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import {ReactComponent as Hero} from '../../icons/hero-signup.svg'
-import "../Signup/signup.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import app from "../../base";
+import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { useHistory } from 'react-router';
-import {Container} from 'react-bootstrap';
+import app from "../../base";
+import { ReactComponent as Hero } from '../../icons/hero-signup.svg';
+import "../Signup/signup.css";
 
 const Login = () => {
     const history = useHistory()

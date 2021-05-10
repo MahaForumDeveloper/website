@@ -13,7 +13,8 @@ import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import LocationCityOutlinedIcon from '@material-ui/icons/LocationCityOutlined';
 import { Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
+import {ThreeColsLayoutRoutes} from '../../routes/routes'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +27,11 @@ const useStyles = makeStyles((theme) => ({
   textTitle: {
     color: '#4B35BD',
     fontWeight: "fontWeightBold",
+  },
+  active: {
+    background: '#f4f4f4'
   }
+
 }));
 
 
@@ -37,41 +42,42 @@ function ListItemLink(props) {
 
 const SideBar = () => {
   const classes = useStyles();
-
+  const history = useHistory();
+  const location = useLocation();
   return (
  <div>
     <div className={classes.textTitle}>
-      <Typography variant="h5" align="center" style={{ margin: "2rem", fontWeight:"800", cursor:"pointer"}}>MahaForum</Typography>
+      <Typography variant="h5" align="center" onClick={()=>history.push('/')} style={{ margin: "2rem", fontWeight:"800", cursor:"pointer"}}>MahaForum</Typography>
     </div>
     <div className={classes.root}>
       <Box m={4}>
       <List component="nav" aria-label="main mailbox folders">
-        <Link to="/profile" color="#0a0a0a" style={{ textDecoration: 'none',  color: 'inherit', }}>
-        <ListItem button>
+        <Link to="/profile" color="#0a0a0a" style={{ textDecoration: 'none',  color: 'inherit' }}>
+        <ListItem className={location.pathname==='/profile' ? classes.active : null} button>
           <ListItemIcon>
             <AccountCircleOutlinedIcon  fontSize="large" />
           </ListItemIcon>
-          <ListItemText ml={0.5} primary="Profile" />
+          <ListItemText primary="Profile" />
         </ListItem>
         </Link>
-        <Link to="/" style={{ textDecoration: 'none' , color: 'inherit',}}>
-        <ListItem button>
+        <Link to="/explore" style={{ textDecoration: 'none' , color: 'inherit',}}>
+        <ListItem className={location.pathname==='/explore' ? classes.active : null} button>
           <ListItemIcon>
             <HomeOutlinedIcon fontSize="large"/>
           </ListItemIcon>
           <ListItemText primary="Explore" />
         </ListItem>
         </Link>
-        <Link to="/" style={{ textDecoration: 'none' , color: 'inherit',}}>
-        <ListItem button>
+        <Link to="/professional" style={{ textDecoration: 'none' , color: 'inherit',}}>
+        <ListItem className={location.pathname==='/professional' ? classes.active : null} button>
           <ListItemIcon>
             <LocationCityOutlinedIcon fontSize="large" />
           </ListItemIcon>
           <ListItemText primary="Professional" />
         </ListItem>
         </Link>
-        <Link to="/" style={{ textDecoration: 'none', color: 'inherit', }}>
-        <ListItem button>
+        <Link to="/creative" style={{ textDecoration: 'none', color: 'inherit', }}>
+        <ListItem className={location.pathname==='/creative' ? classes.active : null} button>
           <ListItemIcon>
             <EmojiObjectsOutlinedIcon fontSize="large" />
           </ListItemIcon>
@@ -81,16 +87,16 @@ const SideBar = () => {
       </List>
       <Divider style={{ background: 'black' }}  />
       <List component="nav" aria-label="secondary mailbox folders">
-        <Link to="/" style={{ textDecoration: 'none', color: 'inherit', }}>
-        <ListItem button>
+        <Link to="/inbox" style={{ textDecoration: 'none', color: 'inherit', }}>
+        <ListItem className={location.pathname==='/inbox' ? classes.active : null} button>
           <ListItemIcon>
             <TextsmsOutlinedIcon fontSize="large" />
           </ListItemIcon>
           <ListItemText primary="Inbox" />
         </ListItem>
         </Link>
-        <Link to="/" style={{ textDecoration: 'none', color: 'inherit', }}>
-        <ListItem button>
+        <Link to="/settings" style={{ textDecoration: 'none', color: 'inherit', }}>
+        <ListItem className={location.pathname==='/settings' ? classes.active : null} button>
           <ListItemIcon>
             <SettingsOutlinedIcon fontSize="large"/>
           </ListItemIcon>
