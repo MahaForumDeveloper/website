@@ -1,15 +1,20 @@
 import { Button, Card, IconButton, TextField } from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import {makeStyles} from '@material-ui/core/styles'
-import { Container } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 
 const useStyles = makeStyles( (theme)=> ({
+    card:{
+        marginTop:21
+    },
    input:{
+       display:"flex",
        margin:5
    },
    button:{
-       margin:10,
+       color:"black",
        position:"absolute",
        right:70,
    },
@@ -19,16 +24,19 @@ const useStyles = makeStyles( (theme)=> ({
    inputField:{
        marginTop:10,
        marginLeft:10,
-       width:"80%"
+       width:"80%",
+       textAlign:"justify",
    },
    iconButton:{
+        display:"block",
        color:"black"
    },
    icon:{
        fontSize:40
    },
    positioning:{
-       marginTop:10,
+       marginTop:5,
+       marginBottom:5,
        display:"flex"
    }
 }))
@@ -36,23 +44,22 @@ const useStyles = makeStyles( (theme)=> ({
 const ExploreCard = () => {
     const classes = useStyles()
     return (
-        <Card>
+        <Card className={classes.card}>
             <Container className={classes.input}>
-                <IconButton className={classes.iconButton} >
-                        <AccountCircleOutlinedIcon fontSize='large' className={classes.icon} />
-                </IconButton>
-                <TextField
-                    id="outlined-multiline-static"
-                    label="Post"
-                    multiline
-                    rows={4}
-                    variant="outlined"
-                    className={classes.inputField}
-                />
+                <div>
+                    <IconButton className={classes.iconButton} >
+                            <AccountCircleOutlinedIcon fontSize='large' className={classes.icon} />
+                    </IconButton>
+                </div>  
+                <div className={classes.inputField}>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur provident illo accusantium alias? Deserunt est esse molestiae placeat itaque hic et quibusdam sequi architecto, rerum nulla ab dignissimos vero ipsam!
+                </div>
             </Container>
             <div className={classes.positioning}>
                 <div className={classes.gap}></div>
-                <Button className={classes.button} variant="outlined">Post</Button>
+                <IconButton className={classes.button} >
+                        <FavoriteBorderIcon fontSize='large' className={classes.icon} />
+                </IconButton>
             </div>
         </Card>
    )
