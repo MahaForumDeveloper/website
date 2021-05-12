@@ -24,7 +24,7 @@ const useStyles = makeStyles( (theme)=> ({
    inputField:{
        marginTop:10,
        marginLeft:10,
-       width:"80%",
+       width:"90%",
        textAlign:"justify",
    },
    iconButton:{
@@ -37,7 +37,8 @@ const useStyles = makeStyles( (theme)=> ({
    positioning:{
        marginTop:5,
        marginBottom:5,
-       display:"flex"
+       display:"flex",
+       alignItems:"center"
    }
 }))
 
@@ -45,11 +46,12 @@ const ExploreCard = () => {
     const classes = useStyles()
     return (
         <Card className={classes.card}>
-            <Container className={classes.input}>
-                <div>
+            <Container>
+                <div className={classes.positioning}>
                     <IconButton className={classes.iconButton} >
                             <AccountCircleOutlinedIcon fontSize='large' className={classes.icon} />
                     </IconButton>
+                    <h4 style={{marginTop:"0.5rem"}}>Satria D.</h4>
                 </div>  
                 <div className={classes.inputField}>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur provident illo accusantium alias? Deserunt est esse molestiae placeat itaque hic et quibusdam sequi architecto, rerum nulla ab dignissimos vero ipsam!

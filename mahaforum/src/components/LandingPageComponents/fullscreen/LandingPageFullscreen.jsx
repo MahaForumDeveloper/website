@@ -9,7 +9,7 @@ const LandingPageFullscreen = () => {
     useEffect(() => {
         var user = app.auth().currentUser;
         if (user) {
-            setIzin("/Profile")
+            setIzin("/profile")
         } 
     }, [])
     return(
