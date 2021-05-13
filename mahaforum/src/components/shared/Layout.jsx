@@ -6,6 +6,9 @@ import RightNav from "../../components/ProfilePageComponents/RightMenu/RightNav"
 import { useLocation } from 'react-router';
 import { ThreeColsLayoutRoutes} from '../../routes/routes'
 import ReviewMenu from '../ProfilePageComponents/RightMenu/ReviewMenu';
+import Inbox from './Inbox'
+import Notification from './Notification'
+
 
 const ThreeColsLayout = ThreeColsLayoutRoutes.map(x=>x.path)
 
@@ -40,6 +43,8 @@ const Layout = ({children}) => {
                 </Col >
                 <Col style={{padding:"0"}}>
                     <RightNav />
+                    <Notification />
+                    <Inbox />
                 </Col>
             </Row>
         )
