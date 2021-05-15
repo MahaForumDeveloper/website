@@ -23,7 +23,7 @@ const route = (label, path, component) => ({
 
 export const SIGNUP_PAGE = route("Signup","/signup",Signup)
 export const LOGIN_PAGE = route('Login', '/login', Login)
-export const PROFILE_PAGE = route("Profile","/profile",Profile)
+export const PROFILE_PAGE = route("Profile","/profile/:user",Profile)
 export const CREATIVE_PAGE = route('Creative', '/creative', Creative)
 export const PROFESSIONAL_PAGE = route('Professional', '/professional', Professional)
 export const EXPLORE_PAGE = route('Explore', '/explore', Explore)

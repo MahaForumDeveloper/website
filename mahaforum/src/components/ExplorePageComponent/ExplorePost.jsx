@@ -1,9 +1,10 @@
-import { Button, Card, IconButton, TextField } from '@material-ui/core';
+import { Avatar, Button, Card, IconButton, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import 'firebase/database';
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 import app from '../../base';
 
 const useStyles = makeStyles( (theme)=> ({
@@ -36,6 +37,7 @@ const useStyles = makeStyles( (theme)=> ({
 }))
 
 const ExploreCard = () => {
+    const history = useHistory()
     const classes = useStyles()
     const [post, setPost] = useState("")
     const handlePost = async () => {
@@ -45,7 +47,7 @@ const ExploreCard = () => {
         else{
             const postRef = app.database().ref('requests')
             try {
-                await postRef.push({post, userDisplayName, userPhoto})
+                await postRef.push({post, userId:app.auth().currentUser.uid })
                 alert("Successfully posted!")
                 setPost()
             } catch(err) {
@@ -57,7 +59,7 @@ const ExploreCard = () => {
         <Card>
             <Container className={classes.input}>
                 <IconButton className={classes.iconButton} >
-                        <AccountCircleOutlinedIcon fontSize='large' className={classes.icon} />
+                        <Avatar onClick={()=>history.push(`/profile/${app.auth().currentUser.uid}`)} fontSize='large' className={classes.icon} src={app.auth().currentUser.photoURL} />
                 </IconButton>
                 <TextField
                     id="outlined-multiline-static"

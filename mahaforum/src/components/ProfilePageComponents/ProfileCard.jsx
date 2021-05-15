@@ -5,11 +5,7 @@ import "./ProfileCard.css"
 import SettingsIcon from '@material-ui/icons/Settings';
 import { IconButton } from '@material-ui/core';
 
-const ProfileCard = ({ref, clickFunction, description, location}) => {
-    const [user, setUser] = useState("")
-    useEffect(() => {
-        setUser(app.auth().currentUser)
-    }, [])
+const ProfileCard = ({ref, clickFunction, description, location, photoURL, displayName}) => {
     return (
        <Card className="shadow-sm p-3 mb-5 bg-white" style={{borderRadius:"40px"}} ref={ref}>
             <IconButton onClick={()=>clickFunction(true)} style={{position:"absolute", right:"1.5rem"}} >
@@ -17,9 +13,9 @@ const ProfileCard = ({ref, clickFunction, description, location}) => {
             </IconButton>
             <div className="card-body d-flex flex-column align-items-start align-content-start">
                 <div className="d-flex">
-                    <img src={user.photoURL ? user.photoURL : "/images/user2.png"} style={{border:"2px solid black",borderRadius:"50%",width:"120px",height:"120px",margin:"0px", marginRight:"34px"}}/>
+                    <img src={photoURL ? photoURL : "/images/user2.png"} style={{border:"2px solid black",borderRadius:"50%",width:"120px",height:"120px",margin:"0px", marginRight:"34px"}}/>
                     <div>
-                        <h4>{user.displayName}</h4>
+                        <h4>{displayName}</h4>
                         <h5><i className="fa fa-map-marker" style={{fontSize:"1.2rem"}}></i> {location}</h5>
                         <p style={{fontSize:"0.8rem"}}>{description}</p>
                     </div>

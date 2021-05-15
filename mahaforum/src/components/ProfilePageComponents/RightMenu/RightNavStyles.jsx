@@ -7,6 +7,10 @@ const useStyles = makeStyles( (theme)=> ({
         fontSize:'.2px',
         padding:'.2rem'
     },
+    navIcon:{
+        width:"2.4rem",
+        height:"2.4rem"
+    },
 
     navTitleText:{
         display: 'flex',

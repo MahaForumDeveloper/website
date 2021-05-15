@@ -8,15 +8,17 @@ import Search from "../../components/shared/Search";
 import app from '../../base'
 import 'firebase/database'
 import 'firebase/storage'
+import { useParams } from 'react-router';
 
 const Profile = () => {
+    const {user} = useParams();
     const [modalShow, setModalShow] = useState(false);
     const ref = useRef(null)
     const [height, setHeight] = useState(false)
     const [data, setData] = useState({})
     useEffect( () => {
         const getData = async () => {
-            const data = await app.database().ref(`users/${app.auth().currentUser.uid}`).get()
+            const data = await app.database().ref(`users/${user}`).get()
             setData(data.val())
         }
         getData()
@@ -47,10 +49,12 @@ function MyVerticallyCenteredModal(props) {
     const [photo, setPhoto] = useState(null)
     const postProfile = async () => {
         const user = app.auth().currentUser
-        if(name.length!==0){
+        const postData = (await app.database().ref().child('users').child(user.uid).get()).val()
+        if(name !== ""){
             await user.updateProfile({
                 displayName: name,
             })
+            postData["displayName"] = name
         }
         if(photo){
             await app.storage().ref().child(`${app.auth().currentUser.uid}.jpg`).child(`${photo.name}`).put(photo)
@@ -58,21 +62,21 @@ function MyVerticallyCenteredModal(props) {
             await user.updateProfile({
                 photoURL:link,
             })
+            postData["photoURL"]=link
         }
-        const postData = {}
-        if(location.length !==0){
+        if(location !== ""){
             postData["location"]=location
         }
-        if(description.length !==0){
+        if(description !== ""){
             postData["description"]=description
         }
-        if(biography.length !==0){
+        if(biography !== ""){
             postData["biography"]=biography
         }
-        if(skill.length !==0){
+        if(skill !== ""){
             postData["skill"]=skill
         }
-        if(portofolio.length !== 0){
+        if(portofolio !== ""){
             postData["portofolio"]=portofolio
         }
         

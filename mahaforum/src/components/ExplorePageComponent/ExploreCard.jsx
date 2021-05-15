@@ -1,9 +1,11 @@
-import { Card, IconButton } from '@material-ui/core';
+import { Avatar, Card, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { useHistory } from 'react-router';
+import app from '../../base';
 
 const useStyles = makeStyles( (theme)=> ({
     card:{
@@ -42,16 +44,26 @@ const useStyles = makeStyles( (theme)=> ({
    }
 }))
 
-const ExploreCard = ({userDisplayName, userPhoto, post}) => {
+const ExploreCard = ({userId, post}) => {
     const classes = useStyles()
+    const [data, setData] = useState({})
+    const history = useHistory()
+    useEffect(() => {
+        const getData = async () => {
+            const tempData = await app.database().ref(`/users/${userId}`).get()
+            setData(tempData.val())
+            console.log(tempData.val())
+        }
+        getData()
+    }, [])
     return (
         <Card className={classes.card}>
             <Container>
                 <div className={classes.positioning}>
                     <IconButton className={classes.iconButton} >
-                            <AccountCircleOutlinedIcon fontSize='large' className={classes.icon} />
+                        <Avatar onClick={()=>history.push(`/profile/${userId}`)} fontSize='large' className={classes.icon} src={data.photoURL} />
                     </IconButton>
-                    <h4 style={{marginTop:"0.5rem"}}>{userDisplayName}</h4>
+                    <h4 style={{marginTop:"0.5rem"}}>{data.displayName}</h4>
                 </div>  
                 <div className={classes.inputField}>
                     {post}

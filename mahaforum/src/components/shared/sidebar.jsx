@@ -14,6 +14,7 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import TextsmsOutlinedIcon from '@material-ui/icons/TextsmsOutlined';
 import React from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
+import app from '../../base';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,8 +52,8 @@ const SideBar = () => {
     <div className={classes.root}>
       <Box m={4}>
       <List component="nav" aria-label="main mailbox folders">
-        <Link to="/profile" color="#0a0a0a" style={{ textDecoration: 'none',  color: 'inherit' }}>
-        <ListItem className={location.pathname==='/profile' ? classes.active : null} button>
+        <Link to={`/profile/${app.auth().currentUser.uid}`} color="#0a0a0a" style={{ textDecoration: 'none',  color: 'inherit' }}>
+        <ListItem className={location.pathname===`/profile/${app.auth().currentUser.uid}` ? classes.active : null} button>
           <ListItemIcon>
             <AccountCircleOutlinedIcon  fontSize="large" />
           </ListItemIcon>

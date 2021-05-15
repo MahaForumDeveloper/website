@@ -6,7 +6,7 @@ import "./ProfileTabs.css"
 const ProfileTabs = (props) => {
     const [tabsContent, setTabsContent] = useState({Biography:props.biography,Description:props.description,Portofolio:props.portofolio})
      useEffect(() => {
-        setTabsContent({Biography:props.biography,Description:props.description,Portofolio:props.portofolio})
+        setTabsContent({Biography:props.biography,Skill:props.skill,Portofolio:props.portofolio})
     }, [props])
     const [picked, setPicked ] = useState("Biography")
     return (

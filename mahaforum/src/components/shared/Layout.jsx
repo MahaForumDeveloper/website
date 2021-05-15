@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap"
 import SideBar from "../../components/shared/sidebar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RightNav from "../../components/ProfilePageComponents/RightMenu/RightNav"
-import { useLocation } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 import { ThreeColsLayoutRoutes} from '../../routes/routes'
 import ReviewMenu from '../ProfilePageComponents/RightMenu/ReviewMenu';
 import Inbox from './Inbox'
@@ -13,8 +13,9 @@ import Notification from './Notification'
 const ThreeColsLayout = ThreeColsLayoutRoutes.map(x=>x.path)
 
 const Layout = ({children}) => {
+    const {user} = useParams()
     const location = useLocation();
-    if(location.pathname === '/profile' || location.pathname === '/Profile')
+    if( location.pathname.includes('/profile/') || location.pathname.includes('/Profile/'))
     {
         return (
        <Row style={{minHeight:"100vh"}}>
