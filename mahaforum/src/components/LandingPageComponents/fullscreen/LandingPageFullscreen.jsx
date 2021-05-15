@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './LandingPageFullscreen.css';
 import LandingPagePict from '../../../icons/landingpage_pict.svg';
 import { AuthContext } from '../../../Auth';
+import app from '../../../base';
 
 const LandingPageFullscreen = () => {
     const [izin, setIzin] = useState("/login")
@@ -10,7 +11,7 @@ const LandingPageFullscreen = () => {
 
     useEffect(() => {
         if (currentUser) {
-            setIzin("/profile")
+            setIzin(`/profile/${app.auth().currentUser.uid}`)
         } 
     }, [])
     return(
