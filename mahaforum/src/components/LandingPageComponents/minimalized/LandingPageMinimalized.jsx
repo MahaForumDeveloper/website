@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import './LandingPageMinimalized.css';
 import LandingPagePict from '../../../icons/landingpage_pict.svg';
-import app from '../../../base';
+import { AuthContext } from '../../../Auth';
 
 const LandingPageMinimalized = () => {
-    var user = app.auth().currentUser;
-    var izin;
-    if (user) {
-        izin = "/mainpage";
-    } else {
-        izin = "/login";
-    }
+    const [izin, setIzin] = useState("/login")
+    const {currentUser} = useContext(AuthContext);
+
+    useEffect(() => {
+        if (currentUser) {
+            setIzin("/profile")
+        } 
+    }, [])
+
     return(
         <div className="bgLandingPageMini">
             <div className="titleMini">

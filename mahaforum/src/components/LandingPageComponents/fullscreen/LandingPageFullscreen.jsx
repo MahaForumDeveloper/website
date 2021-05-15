@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import './LandingPageFullscreen.css';
 import LandingPagePict from '../../../icons/landingpage_pict.svg';
-import app from '../../../base';
+import { AuthContext } from '../../../Auth';
 
 const LandingPageFullscreen = () => {
     const [izin, setIzin] = useState("/login")
+    const {currentUser} = useContext(AuthContext);
+
     useEffect(() => {
-        var user = app.auth().currentUser;
-        if (user) {
+        if (currentUser) {
             setIzin("/profile")
         } 
     }, [])

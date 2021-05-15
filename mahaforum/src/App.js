@@ -14,24 +14,24 @@ function App() {
       <AuthProvider>
         <Router>
         <Navbar/>
-        <Layout>
-            {AllOpenRoutes.map(({path, component: Component})=>(
-              <Route
-              exact
-              key={path}
-              path={path}
-              render={() => <Component />}
-            />
-            ))}
-            {AllPrivateRoutes.map(({path, component: Component})=>(
-              <PrivateRoute
-              exact
-              key={path}
-              path={path}
-              component={Component}
-            />
-            ))}
-        </Layout>
+          <Layout>
+              {AllOpenRoutes.map(({path, component: Component})=>(
+                <Route
+                exact
+                key={path}
+                path={path}
+                render={() => <Component />}
+              />
+              ))}
+              {AllPrivateRoutes.map(({path, component: Component})=>(
+                <PrivateRoute
+                exact
+                key={path}
+                path={path}
+                component={Component}
+              />
+              ))}
+          </Layout>
        </Router>
       </AuthProvider>
     </div>

@@ -1,8 +1,11 @@
 import { Button, Card, IconButton, TextField } from '@material-ui/core'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import {makeStyles} from '@material-ui/core/styles'
 import { Container } from 'react-bootstrap';
+import 'firebase/database'
+import app from '../../base'
+import { AuthContext } from '../../Auth';
 
 const useStyles = makeStyles( (theme)=> ({
    input:{
@@ -35,6 +38,22 @@ const useStyles = makeStyles( (theme)=> ({
 
 const ExploreCard = () => {
     const classes = useStyles()
+    const [post, setPost] = useState("")
+    const handlePost = async () => {
+        const userDisplayName = app.auth().currentUser.displayName
+        const userPhoto = app.auth().currentUser.photoURL
+        if(post===""){alert('Cannot post nothing!')}
+        else{
+            const postRef = app.database().ref('requests')
+            try {
+                await postRef.push({post, userDisplayName, userPhoto})
+                alert("Successfully posted!")
+                setPost()
+            } catch(err) {
+                alert(err)
+            }
+        }
+    }
     return (
         <Card>
             <Container className={classes.input}>
@@ -48,11 +67,12 @@ const ExploreCard = () => {
                     rows={4}
                     variant="outlined"
                     className={classes.inputField}
+                    onChange={e=>setPost(e.target.value)}
                 />
             </Container>
             <div className={classes.positioning}>
                 <div className={classes.gap}></div>
-                <Button className={classes.button} variant="outlined">Post</Button>
+                <Button onClick={handlePost} className={classes.button} variant="outlined">Post</Button>
             </div>
         </Card>
    )

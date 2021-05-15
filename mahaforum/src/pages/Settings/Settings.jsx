@@ -1,8 +1,5 @@
-import React from 'react'
-import { Row, Col } from "react-bootstrap"
-import SideBar from "../../components/shared/sidebar";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RightNav from "../../components/ProfilePageComponents/RightMenu/RightNav"
+import React from 'react';
 
 
 const Settings = () => {

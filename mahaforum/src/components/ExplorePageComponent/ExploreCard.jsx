@@ -42,7 +42,7 @@ const useStyles = makeStyles( (theme)=> ({
    }
 }))
 
-const ExploreCard = () => {
+const ExploreCard = ({userDisplayName, userPhoto, post}) => {
     const classes = useStyles()
     return (
         <Card className={classes.card}>
@@ -51,10 +51,10 @@ const ExploreCard = () => {
                     <IconButton className={classes.iconButton} >
                             <AccountCircleOutlinedIcon fontSize='large' className={classes.icon} />
                     </IconButton>
-                    <h4 style={{marginTop:"0.5rem"}}>Satria D.</h4>
+                    <h4 style={{marginTop:"0.5rem"}}>{userDisplayName}</h4>
                 </div>  
                 <div className={classes.inputField}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur provident illo accusantium alias? Deserunt est esse molestiae placeat itaque hic et quibusdam sequi architecto, rerum nulla ab dignissimos vero ipsam!
+                    {post}
                 </div>
             </Container>
             <div className={classes.positioning}>
