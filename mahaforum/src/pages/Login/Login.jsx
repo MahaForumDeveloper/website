@@ -1,8 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useHistory } from 'react-router';
-import { AuthContext } from '../../Auth';
 import app from "../../base";
 import { ReactComponent as Hero } from '../../icons/hero-signup.svg';
 import "../Signup/signup.css";

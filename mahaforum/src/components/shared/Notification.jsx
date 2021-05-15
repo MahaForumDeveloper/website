@@ -1,8 +1,6 @@
+import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-import { Card, Typography, Grid} from '@material-ui/core'
-import StarIcon from '@material-ui/icons/Star';
 
-import {makeStyles} from '@material-ui/core/styles'
 
 const useStyles = makeStyles( (theme) => ({
     notification:{

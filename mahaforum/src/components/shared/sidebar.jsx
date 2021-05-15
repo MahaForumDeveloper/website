@@ -1,20 +1,19 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
+import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
+import { makeStyles } from '@material-ui/core/styles';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import TextsmsOutlinedIcon from '@material-ui/icons/TextsmsOutlined';
-import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import LocationCityOutlinedIcon from '@material-ui/icons/LocationCityOutlined';
-import { Typography } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
-import { Link, useHistory, useLocation } from 'react-router-dom'
-import {ThreeColsLayoutRoutes} from '../../routes/routes'
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
+import TextsmsOutlinedIcon from '@material-ui/icons/TextsmsOutlined';
+import React from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({

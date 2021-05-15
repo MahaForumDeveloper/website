@@ -17,7 +17,7 @@ const ProfileCard = ({ref, clickFunction, description, location}) => {
             </IconButton>
             <div className="card-body d-flex flex-column align-items-start align-content-start">
                 <div className="d-flex">
-                    <img src={user.photoURL ? user.photoURL : "/images/user2.png"} style={{width:"120px",height:"120px",margin:"0px", marginRight:"34px"}}/>
+                    <img src={user.photoURL ? user.photoURL : "/images/user2.png"} style={{border:"2px solid black",borderRadius:"50%",width:"120px",height:"120px",margin:"0px", marginRight:"34px"}}/>
                     <div>
                         <h4>{user.displayName}</h4>
                         <h5><i className="fa fa-map-marker" style={{fontSize:"1.2rem"}}></i> {location}</h5>

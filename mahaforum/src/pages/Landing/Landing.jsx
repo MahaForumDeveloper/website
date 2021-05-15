@@ -1,9 +1,8 @@
 import React from 'react';
-import './Landing.css';
-import {useMediaQuery} from 'react-responsive'
-import LandingPagePict from '../../icons/landingpage_pict.svg';
+import { useMediaQuery } from 'react-responsive';
 import LandingPageFullscreen from '../../components/LandingPageComponents/fullscreen/LandingPageFullscreen';
 import LandingPageMinimalized from '../../components/LandingPageComponents/minimalized/LandingPageMinimalized';
+import './Landing.css';
 
 const useScreen = () => {
     const isMinimalized = useMediaQuery({maxWidth:600});

@@ -5,6 +5,7 @@ import './Navbar.css'
 import {AllOpenRoutes} from '../../../routes/routes';
 import { Button } from 'react-bootstrap';
 import { AuthContext } from '../../../Auth';
+import app from '../../../base';
 
 const AllOpenRoutesPath = AllOpenRoutes.map(route=>route.path)
 
@@ -28,7 +29,7 @@ const Navbar = () => {
                     <div className='navbar-content' >
                         <ul className={click? 'nav-menu active' : 'nav-menu'}>
                             
-                        { currentUser ? <Button variant="outline-danger">Log out</Button> : 
+                        { currentUser ? <Button variant="outline-danger" onClick={()=>app.auth().signOut()}>Log out</Button> : 
                             NavbarRoutes.map((item, index)=>{
                                 return (
                                     <NavLink exact to = {NavbarRoutes[index].path} className='nav-links' onClick={handleClick} key={index}>{NavbarRoutes[index].label} </NavLink>

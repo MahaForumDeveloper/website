@@ -1,11 +1,10 @@
-import { Button, Card, IconButton, TextField } from '@material-ui/core'
-import React, { useContext, useEffect, useState } from 'react'
+import { Button, Card, IconButton, TextField } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-import {makeStyles} from '@material-ui/core/styles'
+import 'firebase/database';
+import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
-import 'firebase/database'
-import app from '../../base'
-import { AuthContext } from '../../Auth';
+import app from '../../base';
 
 const useStyles = makeStyles( (theme)=> ({
    input:{

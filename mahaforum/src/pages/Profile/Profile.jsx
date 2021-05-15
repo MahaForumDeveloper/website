@@ -7,6 +7,7 @@ import ProfileTabs from "../../components/ProfilePageComponents/ProfileTabs";
 import Search from "../../components/shared/Search";
 import app from '../../base'
 import 'firebase/database'
+import 'firebase/storage'
 
 const Profile = () => {
     const [modalShow, setModalShow] = useState(false);
@@ -43,11 +44,19 @@ function MyVerticallyCenteredModal(props) {
     const [biography, setBiography] = useState("")
     const [skill, setSkill] = useState("")
     const [portofolio, setPortofolio] = useState("")
+    const [photo, setPhoto] = useState(null)
     const postProfile = async () => {
         const user = app.auth().currentUser
         if(name.length!==0){
             await user.updateProfile({
                 displayName: name,
+            })
+        }
+        if(photo){
+            await app.storage().ref().child(`${app.auth().currentUser.uid}.jpg`).child(`${photo.name}`).put(photo)
+            const link = await app.storage().ref().child(`${app.auth().currentUser.uid}.jpg`).child(`${photo.name}`).getDownloadURL()
+            await user.updateProfile({
+                photoURL:link,
             })
         }
         const postData = {}
@@ -66,6 +75,7 @@ function MyVerticallyCenteredModal(props) {
         if(portofolio.length !== 0){
             postData["portofolio"]=portofolio
         }
+        
         var updates = {}
         updates['/users/'+ user.uid] = postData  
         await app.database().ref().update(updates)
@@ -95,6 +105,19 @@ function MyVerticallyCenteredModal(props) {
                     fullWidth
                     onChange={e=>setName(e.target.value)}
                 />
+            <div style={{height:"1rem"}}>
+
+            </div>
+            <div style={{padding:"0.5rem", border:"1px solid rgb(182, 178, 178)", borderRadius:".3rem"}}>
+                <label for="avatar" style={{color:"rgb(182, 178, 178)"}}>Profile Picture:</label>
+                <div style={{height:"1rem"}}>
+                </div>
+                <input type="file"
+                    id="avatar" name="avatar"
+                    accept="image/png, image/jpeg"
+                    onChange={e=>setPhoto(e.target.files[0])}
+                    ></input>
+            </div>
             <div style={{height:"1rem"}}>
 
             </div>
