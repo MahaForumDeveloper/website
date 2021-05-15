@@ -22,7 +22,7 @@ const Profile = () => {
             setData(data.val())
         }
         getData()
-    }, [height, modalShow])
+    }, [height, modalShow, user])
     return (
         <>  
             <Search/>
