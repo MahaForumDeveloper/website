@@ -51,7 +51,9 @@ const Professional = () => {
                       marginBottom: "0.25em",
                       marginLeft: "0.25em",
                       borderRadius: "5px",
-                    }}>
+                    }}
+                      href={item.prototype}
+                    >
                       Prototype
                     </Button>
                     <Button variant="contained" style={{
@@ -59,7 +61,9 @@ const Professional = () => {
                       width: "8em",
                       margin: "0.25em",
                       borderRadius: "5px",
-                    }}>
+                    }}
+                      href={item.contact}
+                    >
                       Contact
                     </Button>
                   </Col>
