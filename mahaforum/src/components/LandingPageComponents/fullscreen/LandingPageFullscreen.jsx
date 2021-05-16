@@ -12,8 +12,10 @@ const LandingPageFullscreen = () => {
     useEffect(() => {
         if (currentUser) {
             setIzin(`/profile/${app.auth().currentUser.uid}`)
-        } 
-    }, [])
+        } else {
+            setIzin('/login')
+        }
+    }, [currentUser])
     return(
         <div className="bgLandingPageFull">
             <div className="contentLandingPageFull">

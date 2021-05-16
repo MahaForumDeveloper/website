@@ -85,25 +85,6 @@ const SideBar = () => {
         </ListItem>
         </Link>
       </List>
-      <Divider style={{ background: 'black' }}  />
-      <List component="nav" aria-label="secondary mailbox folders">
-        <Link to="/inbox" style={{ textDecoration: 'none', color: 'inherit', }}>
-        <ListItem className={location.pathname==='/inbox' ? classes.active : null} button>
-          <ListItemIcon>
-            <TextsmsOutlinedIcon fontSize="large" />
-          </ListItemIcon>
-          <ListItemText primary="Inbox" />
-        </ListItem>
-        </Link>
-        <Link to="/settings" style={{ textDecoration: 'none', color: 'inherit', }}>
-        <ListItem className={location.pathname==='/settings' ? classes.active : null} button>
-          <ListItemIcon>
-            <SettingsOutlinedIcon fontSize="large"/>
-          </ListItemIcon>
-          <ListItemText primary="Settings" />
-        </ListItem>
-        </Link>
-      </List>
     </Box>
   </div>
 </div>

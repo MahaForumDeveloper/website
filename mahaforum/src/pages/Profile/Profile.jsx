@@ -1,4 +1,4 @@
-import { Divider, TextField } from '@material-ui/core';
+import { Divider, FormControl, InputLabel, MenuItem, Select, TextField } from '@material-ui/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useRef, useState } from "react";
 import { Button, Modal } from 'react-bootstrap';
@@ -25,7 +25,7 @@ const Profile = () => {
     }, [height, modalShow, user])
     return (
         <>  
-            <Search/>
+            <Search initial={[]} setData={()=>{}}/>
             <ProfileCard clickFunction={setModalShow} ref={ref} {...data}/> 
             <div style={{borderRadius:"40px"}} className="shadow-sm p-3 mb-5 bg-body">
                 <ProfileTabs {...data}/>
@@ -47,14 +47,43 @@ function MyVerticallyCenteredModal(props) {
     const [skill, setSkill] = useState("")
     const [portofolio, setPortofolio] = useState("")
     const [photo, setPhoto] = useState(null)
+    const [projectType, setProjectType] = useState("")
+    const [institution, setInstitution] = useState("")
+    const [criterias, setCriterias] = useState("")
+    const [type, setType] = useState("")
+    const [contact, setContact] = useState("")
+    const [prototype, setPrototype] = useState("")
+
     const postProfile = async () => {
         const user = app.auth().currentUser
         const postData = (await app.database().ref().child('users').child(user.uid).get()).val()
+        let projectData = (await app.database().ref().child('projectPost').child(user.uid).get()).val()
+        if(projectType!==""){
+            projectData = {...projectData, postType:projectType}
+        }
+        if(institution!==""){
+            projectData = {...projectData, institution}
+        } 
+        if(criterias!==""){
+            projectData = {...projectData, criterias}
+        }
+        if(type!==""){
+            projectData = {...projectData, type}
+        }
+        if(contact!==""){
+            projectData = {...projectData, contact:`https://api.whatsapp.com/send?phone=${"62"+contact.substring(1,contact.length-1)}`}
+        }
+        if(prototype!==""){
+            projectData = {...projectData, prototype}
+        }
         if(name !== ""){
             await user.updateProfile({
                 displayName: name,
             })
             postData["displayName"] = name
+            projectData = {...projectData, name}
+        }else{
+            projectData = {...projectData, name:app.auth().currentUser.displayName}
         }
         if(photo){
             await app.storage().ref().child(`${app.auth().currentUser.uid}.jpg`).child(`${photo.name}`).put(photo)
@@ -82,6 +111,7 @@ function MyVerticallyCenteredModal(props) {
         
         var updates = {}
         updates['/users/'+ user.uid] = postData  
+        updates['/projectPost/'+user.uid] = projectData
         await app.database().ref().update(updates)
         alert("Successfully updated profile!")
         props.onHide()
@@ -99,6 +129,7 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body style={{maxHeight:"270.429px", overflow:"scroll"}}>
+          <h3>Profile Card</h3>
             <div style={{height:"1rem"}}>
 
             </div>
@@ -152,6 +183,10 @@ function MyVerticallyCenteredModal(props) {
             <div style={{height:"1rem"}}>
 
             </div>
+            <h3>Profile Tabs</h3>
+            <div style={{height:"1rem"}}>
+
+            </div>
             <TextField
                     id="outlined-multiline-static"
                     label="Biography"
@@ -191,6 +226,80 @@ function MyVerticallyCenteredModal(props) {
             <div style={{height:"1rem"}}>
 
             </div>
+            <Divider style={{ background: 'black' }}  />
+            <div style={{height:"1rem"}}>
+
+            </div>
+            <h3>Project Post</h3>
+            <div style={{height:"1rem"}}>
+
+            </div>
+            <FormControl style={{ padding:".5rem", border:"1px solid rgb(182, 178, 178)", borderRadius:".3rem",width:"100%", marginBottom:"1rem"}}>
+                <InputLabel style={{padding:".5rem"}} id="demo-simple-select-label">Post Type</InputLabel>
+                <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={projectType}
+                onChange={e=>setProjectType(e.target.value)}
+                fullWidth
+                >
+                    <MenuItem value={"Professional"}>Professional</MenuItem>
+                    <MenuItem value={"Creative"}>Creative</MenuItem>
+                </Select>
+            </FormControl>
+            <TextField
+                    id="outlined-multiline-static"
+                    label="Institution"
+                    variant="outlined"
+                    fullWidth
+                    onChange={e=>setInstitution(e.target.value)}
+                />
+            <div style={{height:"1rem"}}>
+
+            </div>
+            <TextField
+                    id="outlined-multiline-static"
+                    label="Criterias"
+                    multiline
+                    rows={2}
+                    variant="outlined"
+                    fullWidth
+                    onChange={e=>setCriterias(e.target.value)}
+                />
+            <div style={{height:"1rem"}}>
+
+            </div>
+            <TextField
+                    id="outlined-multiline-static"
+                    label="Project Type"
+                    variant="outlined"
+                    fullWidth
+                    onChange={e=>setType(e.target.value)}
+                />
+            <div style={{height:"1rem"}}>
+
+            </div>
+            <TextField
+                    id="outlined-multiline-static"
+                    label="Contact number"
+                    variant="outlined"
+                    fullWidth
+                    onChange={e=>setContact(e.target.value)}
+                />
+            <div style={{height:"1rem"}}>
+
+            </div>
+            {
+                (projectType === "Professional")
+                &&
+                    <TextField
+                            id="outlined-multiline-static"
+                        label="Prototype URL"
+                        variant="outlined"
+                        fullWidth
+                        onChange={e=>setPrototype(e.target.value)}
+                    />
+            } 
      </Modal.Body>
       <Modal.Footer>
         <Button onClick={postProfile} variant="success">Update Profile</Button>

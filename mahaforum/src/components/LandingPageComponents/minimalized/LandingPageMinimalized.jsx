@@ -12,6 +12,8 @@ const LandingPageMinimalized = () => {
     useEffect(() => {
         if (currentUser) {
             setIzin(`/profile/${app.auth().currentUser.uid}`)
+        } else {
+            setIzin('/login')
         } 
     }, [])
 

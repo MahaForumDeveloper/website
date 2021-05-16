@@ -1,38 +1,25 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import Search from '../../components/shared/Search';
 import Card from '@material-ui/core/Card';
-import { Row, Col, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'firebase/database';
+import React, { useEffect, useState } from 'react';
+import { Button, Col, Row } from 'react-bootstrap';
+import { useList } from 'react-firebase-hooks/database';
+import app from '../../base';
+import Search from '../../components/shared/Search';
 
-const items = [
-  {
-      id: 1,
-      name: "Alfiansyah",
-      university: "Universitas Sebelas Maret",
-      lookingfor: ["Skill A", "Skill B", "Skill C"],
-      type: "Lomba"
-  },
-  {
-    id: 2,
-    name: "Alfiansyah",
-    university: "Universitas Sebelas Maret",
-    lookingfor: ["Skill A", "Skill B", "Skill C"],
-    type: "Competition"
-  },
-  {
-    id: 3,
-    name: "Alfiansyah",
-    university: "Universitas Sebelas Maret",
-    lookingfor: ["Skill A", "Skill B", "Skill C"],
-    type: "Magang"
-  }
-];
 
 const Creative = () => {
+    const [data, setData] = useState([])
+    const [snapshots, loading, error] = useList(app.database().ref('projectPost'));
+    const [initial, setInitial] = useState(data)
+    useEffect(() => {
+      setData(snapshots.map(x=>x.val()).filter(x=>x.postType==="Creative"))
+      setInitial(snapshots.map(x=>x.val()).filter(x=>x.postType==="Creative"))
+   }, [loading, snapshots])
     return (
       <div>
-          <Search></Search>
-          {items.map( item => {
+          <Search initial={initial} setData={setData}/>
+          {data.map( item => {
             return (
               <Card style={{
                 margin: "1rem",
@@ -44,21 +31,14 @@ const Creative = () => {
                   <Col xs={4}>
                     <div className="m-2">
                       <h3>{item.name}</h3>
-                      <p>{item.university}</p>
+                      <p>{item.institution}</p>
                     </div>
                   </Col>
                   <Col xs={4}>
                     <p>Looking for people with:</p>
-                    <ul style={{
-                      listStyleType: "decimal",
-                      marginLeft: "3em",
-                    }}>
-                      {item.lookingfor.map( lookingfors => {
-                        return(
-                          <li>{lookingfors}</li>
-                        )
-                      })}
-                    </ul>
+                    <br></br>
+                    <br></br>
+                    {item.criterias}
                   </Col>
                   <Col xs={2}>
                       <p>Project type</p>

@@ -1,14 +1,13 @@
 import React from 'react';
-
 import { Card, Typography, Grid} from '@material-ui/core'
 import StarIcon from '@material-ui/icons/Star';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import useStyles from './ReviewMenuStyles'
-import ReviewData from './data'
+
 
 const ReviewMenu = () => {
     const classes=useStyles();
-
+    const ReviewData = []
     return (
         <Card classes={{ root: classes.card }} >
 
@@ -19,21 +18,49 @@ const ReviewMenu = () => {
                         Reviews
                     </Typography>
                 </Grid>
-                <Grid item>
-                    <StarIcon className={classes.reviewStarIcon}/>
-                </Grid>
-                <Grid item>
-                    <Typography variant='p'>
-                        4.9
+                <Grid style={{marginLeft:"1rem",marginTop:"0.2rem"}}  item>
+                    <Typography variant='h6'>
+                       0 
                     </Typography>
+                </Grid>
+                <Grid style={{marginLeft:".2rem",marginTop:"0.1rem"}}  item>
+                    <StarIcon className={classes.reviewStarIcon}/>
                 </Grid>
             </Grid>
 
 
             {/* Review Main Menu */}
         {
+            (ReviewData.length === 0)
+            ?
+            <div style={{height:"55vh"}}>
+                <span>There is no review yet!</span>
+            </div>
+            :
             ReviewData.map((data,idx)=>{
                 return(
+                    <ReviewText idx={idx} data={data}/>
+               )
+            })
+            
+        }
+
+
+        <Grid container justify='center'>
+            <a href="#" className={classes.reviewSeeMoreLink}>See More</a>
+        </Grid>
+
+
+
+        </Card>
+    );
+}
+
+export default ReviewMenu;
+
+function ReviewText({data,idx}){
+    const classes=useStyles();
+    return (
                 <Grid container xs={12} className={classes.reviewItemContainer} key={idx}>
                     {/* Left part just from User Icon */}
                     <Grid item xs={2}>
@@ -72,20 +99,5 @@ const ReviewMenu = () => {
 
                     </Grid>
                 </Grid> 
-                )
-            })
-            
-        }
-
-
-        <Grid container justify='center'>
-            <a href="#" className={classes.reviewSeeMoreLink}>See More</a>
-        </Grid>
-
-
-
-        </Card>
-    );
+    )
 }
-
-export default ReviewMenu;

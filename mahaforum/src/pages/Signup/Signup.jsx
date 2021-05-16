@@ -26,8 +26,19 @@ const Signup = () => {
           user.updateProfile({
               displayName:fullname,
           })
+            const postData = {
+                biography:"None",
+                description:`Hello! my name is ${fullname}. I'm new to mahaforum, connect with me!`,
+                displayName:fullname,
+                location:"Earth",
+                portofolio:"None",
+                skill:"None"
+            }
+            var updates = {}
+            updates['/users/'+ user.uid] = postData  
+            await app.database().ref().update(updates)
           alert("Successfully created account!")
-          history.push("/login");
+          history.push(`/profile/${user.uid}`);
         } catch (err) {
             alert(err);
         }

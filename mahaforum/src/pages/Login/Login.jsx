@@ -16,7 +16,8 @@ const Login = () => {
             await app
             .auth()
             .signInWithEmailAndPassword(email, password);
-            history.push("/");
+            var user = app.auth().currentUser
+            history.push(`/profile/${user.uid}`);
         }
         catch (err){
             alert(err);

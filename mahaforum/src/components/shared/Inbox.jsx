@@ -64,7 +64,7 @@ const Inbox = () => {
 
 
 
-        {
+        {/* {
             data.map((data,idx)=>{
 
                 return(
@@ -78,7 +78,7 @@ const Inbox = () => {
                     </Grid>
                 )
             })
-        }
+        } */}
 
         </div>
     );
