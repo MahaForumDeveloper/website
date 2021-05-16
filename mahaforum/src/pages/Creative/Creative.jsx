@@ -36,8 +36,6 @@ const Creative = () => {
                   </Col>
                   <Col xs={4}>
                     <p>Looking for people with:</p>
-                    <br></br>
-                    <br></br>
                     {item.criterias}
                   </Col>
                   <Col xs={2}>
